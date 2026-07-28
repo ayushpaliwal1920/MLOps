@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Power Calculator")
+st.title("Power Calculator 2x , 3x , 5x")
 st.write("Enter a number to calculate its square, cube, and fifth power.")
 
 # User input
