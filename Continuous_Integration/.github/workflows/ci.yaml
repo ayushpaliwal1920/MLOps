@@ -8,6 +8,9 @@ on:
   push:
     branches:
       - main
+      - data-versioning
+      - feature/continuous-integration
+      - experiment-tracking-mlflow
   pull_request:
     branches:
       - main

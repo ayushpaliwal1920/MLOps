@@ -21,3 +21,5 @@ def test_square_float():
 
 def test_square_large_number():
     assert square(1000) == 1000000
+
+# I added the all the branches inci.yaml file so the test will occur when code is pushed to alll branches
