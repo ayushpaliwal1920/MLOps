@@ -8,6 +8,9 @@ on:
   push:
     branches:
       - main
+      - data-versioning
+      - feature/continuous-integration
+      - experiment-tracking-mlflow
   pull_request:
     branches:
       - main
@@ -20,12 +23,12 @@ jobs:
 
     steps:
       - name: Checkout code  # Name of the step(anything you want to name it)
-        uses: actions/checkout@v2 # This step checks out the code from the repository so that it can be used in subsequent steps.
+        uses: actions/checkout@v4 # This step checks out the code from the repository so that it can be used in subsequent steps.
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -34,4 +37,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest _test.py
+          pytest
