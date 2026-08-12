@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: kubernetes-test-app
+spec:
+  replicas: 2  # Number of pods : ek down hoga dusra to rhega
+  selector:
+    matchLabels:
+      app: kubernetes-test-app
+  template:
+    metadata:
+      labels:
+        app: kubernetes-test-app
+    spec:
+      containers:
+      - name: kubernetes-test-app
+        image: kubernetes-test-app:latest
+        imagePullPolicy: Never  # Tell Kubernetes not to pull from a registry
+        # image: vikash95/kubernetes-test-app:latest  # uses this line when we want to pull or deploy from docker hub or AWS ECR
+        resources:
+          limits:
+            memory: "64Mi" # minimum memory required for the container to run
+            cpu: "200m"   # minimum cpu required for the container to run
+        ports:
+        - containerPort: 5000
+
+--- #   --- use for separating multiple resources in a single YAML file
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-test-app
+spec:
+  selector:
+    app: kubernetes-test-app
+  ports:
+  - port: 8080
+    targetPort: 5000
