@@ -1,3 +1,5 @@
+KUBERNETES WORKFLOW
+
 ### **1. How to Incorporate Kubernetes in a CI/CD Workflow**
 
 In your GitHub Actions + AWS project, Kubernetes can replace or complement the deployment process. Here's how:
